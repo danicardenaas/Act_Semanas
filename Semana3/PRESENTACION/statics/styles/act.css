@@ -1,0 +1,114 @@
+@font-face{
+font-family: "Mi fuente" ;
+    src: url("../fonts/FreshFruit.ttf");
+}
+@font-face{
+    font-family: "Roboto" ;
+        src: url("../fonts/roboto.ttf");
+}
+/* = ESTRUCTURA-------------------------------------------------------*/
+body{
+    background-image: url("../img/pinceladas.png"); /* Archivo raíz*/
+    background-size: cover;
+    padding: 5%;
+    border: 5px double crimson; 
+}
+
+/* = HEADER-------------------------------------------------------*/
+header{
+    font-family: "Mi fuente", "Lucida Handwrinting", cursive;
+    font-size: 35px;
+    color: brown; 
+    background-color: aliceblue;
+    text-align: center;
+}
+
+/* = PARAGRAPH-------------------------------------------------------*/
+p{
+    font-family: "Roboto", "Arial", sans-serif;
+    font-size: 30;
+    color: darkblue; 
+    width: 90%;
+    height: 90px;
+    overflow: scroll;
+}
+
+/* = H2 -------------------------------------------------------*/
+h2{
+    font-family: "Mi fuente", "Lucida Handwrinting", cursive;
+    font-size: 20px;
+    color: brown; 
+}
+
+footer{
+    font-family: "Roboto", "Arial", sans-serif;
+    font-size: 15;
+    color: darkblue; 
+}
+
+/* = CLASES DIV-------------------------------------------------------*/
+.cuadrito{
+    font-family: "Roboto", "Arial", sans-serif;
+    color: darkred; 
+    font-weight: bold;
+    background-color: white;
+    border-radius: 50px;
+    border: orange dashed;
+}
+
+/* = ID seccciones -------------------------------------------------------*/
+
+#crush{
+    width: 180px;
+    height: 140px;
+    position: relative;
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding-left: 2%;
+}
+
+#canciones
+{
+    width: 300px;
+    height: 130px;
+    position: relative;
+    left: 35%;
+    bottom: 50px; 
+}
+
+#pasatiempo{
+    width: 200px;
+    height: 130px;
+    position: absolute;
+    right: 15%;
+}
+
+#programacion{
+    width: 40%;
+    height: 30%;
+    position:relative;
+}
+
+#imagen{
+    position:relative; 
+    margin-left: 40%;
+}
+
+#cancion
+{
+    position: relative; 
+}
+
+/* = Pseudoclase -------------------------------------------------------*/
+
+a:link{
+    color: gold;
+    font-weight: bold;
+    font-size: 20px;
+}
+a:visited{
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
