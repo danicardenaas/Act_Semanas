@@ -1,0 +1,31 @@
+@font-face{
+    font-family: "Mi fuente" ;
+    src: url("../fonts/FreshFruit.ttf");
+}
+@font-face{
+    font-family: "Roboto" ;
+        src: url("../fonts/roboto.ttf");
+}
+/* = ESTRUCTURA-------------------------------------------------------*/
+
+/* = HEADER-------------------------------------------------------*/
+header{
+    font-family: "Mi fuente", "Lucida Handwrinting", cursive;
+    font-size: 35px;
+    color: brown; 
+    text-align: center;
+}
+
+/* = H1 -------------------------------------------------------*/
+h1{
+    font-family: "Roboto", "Arial", sans-serif;
+    font-size: 20px;
+    color: brown; 
+    text-align: center;
+}
+
+#imagen{
+    position:relative; 
+    margin-left: 30%;
+    border-image: auto;
+}
