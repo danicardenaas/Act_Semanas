@@ -1,0 +1,44 @@
+@font-face{
+    font-family: "Títulos" ;
+    src: url("../fonts/FreshFruit.ttf");
+}
+@font-face{
+    font-family: "Roboto" ;
+    src: url("../fonts/roboto.ttf");
+}
+body{
+    background-color:#64DCFA;
+}
+
+form{
+    font-family: "Títulos", "Lucida Handwrinting", cursive;
+    color:#000000;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#tareas{
+    font-family: "Títulos", "Lucida Handwrinting", cursive;
+    background-color:#4FE3CC;
+    color: black;
+    width:20%;
+    position: relative;
+    margin-top: 10%; 
+    left:38%;
+    right: 30%;
+    border:5%;
+    text-align: center;
+    border-radius: 15px;
+    border-style:dashed;
+    border-color: #4F93E3;
+}
+
+#btn, #completar, #borrar{
+    position:relative;
+    background-color: #64DCFA;
+    border-color:black;
+    border-radius: 10px;
+    margin-right: auto;
+    top:0px;
+}

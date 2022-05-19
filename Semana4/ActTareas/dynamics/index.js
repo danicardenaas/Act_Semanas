@@ -1,129 +1,110 @@
-const boton = document.getElementById("btn-agregarTarea");
-const materias = document.getElementById("materias");
+const boton = document.getElementById("btn"); //creación de constantes
 const input = document.getElementById("input");
+const materias = document.getElementById("materias");
 const lista = document.getElementById("listaTareas");
 const registro = document.getElementById("registro");
-const div = document.getElementById("pendientes");
-var terminadas = document.createElement("span");
-var nuevaTarea = document.createElement("input");
-let texto=" tareas pendientes de ";
-let nombreMateria = materias.value;
-nuevaTarea.innerHTML="<input class='texto' id='otra' type='text' placeholder='Nombre materia nueva '/>";
-let otraOpcion=0;
-let child=0;
-let totales=0;
-let acabadas=0;
-let index=0;
+const div = document.getElementById("tareas");
+var marca = document.createElement("span"); //creacion de elementos para ahí meter las tareas pendientes
+var crearinput = document.createElement("input"); //texto de la materia nueva 
+let pendientes=" tareas acabadas de ";
+let nombreMateria = materias.value, otraMat=0, child=0, totalTareas=0, completadas=0, conteo=0; //variables utilizadas al rededor las funciones iterativas 
+crearinput.innerHTML="<input class='texto' id='otra' type='text' placeholder='Nueva materia: '/>";
+
+// intenté agregar la materia al select :(
+// var = materiaselect = document.createElement("select"); 
+// materiaselect.innerHTML="<option values='"+nombreMateria + "'>"+nombreMateria + "</option>"; 
+//mi idea era dentro del evento en el que se verifica si se agrega otra materia o no--abajo 
+
+
 materias.addEventListener("change", (evento)=>
 {
+    nombreMateria = materias.value;
     if(nombreMateria=="Otra"){   
-        registro.appendChild(nuevaTarea);
-        otraOpcion=1;
+        registro.appendChild(crearinput);
+        otraMat=1;
         child=1;
     }
     else{
         if(child==1)
         {
-            registro.removeChild(nuevaTarea); 
+            registro.removeChild(crearinput); 
            child=0;
         }
-        otraOpcion=0;
+        otraMat=0;
     }
 });
+
 boton.addEventListener("click", (evento)=>{
     var tarea = input.value;
+    if(input.value == "")
+    {
+            alert("Registra una tarea, por favor :) ");
+    }
     if(tarea != "")
     {
-        if(otraOpcion != 1)
-        {
-            lista.innerHTML += "<div id='"+index+"' class='tarea'>"+"<div id='ariba'><span class='boton' id='SelectMateria'><strong>"+nombreMateria+"</strong></span>"+'<button class="boton" id="subir">Subir</button>'+'<button class="boton" id="bajar">Bajar</button></div>'+'<br><br><div id="izquierda">'+tarea+'</div><div id="derecha"><button class="boton"id="completar">Completado</button><br><button class="boton" id="borrar">Borrar</button>'+'</div></div>';
-        } 
+        if(otraMat != 1)
+            lista.innerHTML += "<div id='"+conteo+"' class='tarea'>"+"<div id='ariba'><span class='boton'><strong>"+nombreMateria+"</strong></span>"+'</div>'+'<br><br><div id="izquierda">'+tarea+'</div><div id="derecha"><button class="boton"id="completar">Terminado</button><br><button class="boton" id="borrar">Borrar</button>'+'</div></div>';
         else
         {
-            nombreMateria=nuevaTarea.value;
+            nombreMateria=crearinput.value;
             if(nombreMateria=="")
-            {
                 nombreMateria="Otra";
-            }
-            lista.innerHTML += "<div id='"+index+"' class='tarea'>"+"<div id='ariba'><span class='boton' id='SelectMateria'><strong>"+nombreMateria+"</strong></span>"+'<button class="boton" id="subir">Subir</button>'+'<button class="boton" id="bajar">Bajar</button></div>'+'<br><br><div id="izquierda">'+tarea+'</div><div id="derecha"><button class="boton"id="completar">Completado</button><br><button class="boton" id="borrar">Borrar</button>'+'</div></div>';
+            lista.innerHTML += "<div id='"+conteo+"' class='tarea'>"+"<div id='ariba'><span class='boton'><strong>"+nombreMateria+"</strong></span></div>"+'<br><br><div id="izquierda">'+tarea+'</div><div id="derecha"><button class="boton"id="completar">Terminado</button><br><button class="boton" id="borrar">Borrar</button>'+'</div></div>';
         }
-        totales++;
-        if(acabadas==1)
-        {
-            texto=" tarea pendiente de "
-        }
-        else{
-            texto=" tareas pendientes de "
-        }
-        terminadas.innerHTML=acabadas+texto+totales;
-        index++;
-    }
-    
+        totalTareas++;
+        if(completadas==1)
+            pendientes=" tarea pendiente de "
+        else
+            pendientes=" tareas pendientes de "
+        marca.innerHTML=completadas+pendientes+totalTareas;
+        conteo++;
+    } 
 });
+
 lista.addEventListener("click" , (evento)=>{
 
     if(evento.target.className== "boton")
     {
-        if(evento.target.id=="borrar"){
+        id=evento.target.id; 
+        if(id=="borrar"){
             
-            if(evento.target.parentElement.children[0].innerHTML=="No completado")
-            {
-                acabadas--;
-            }
-            esteid=evento.target.parentElement.parentElement.id;
+            if(evento.target.parentElement.children[0].innerHTML=="Sin terminar")
+                completadas--;
          
-            let i=totales-1;
+            let i=totalTareas-1;
            
-            while(i>esteid)
+            while(i>evento.target.parentElement.parentElement.id)
             {
-               
-                var nuevoid=lista.children[i].id;
-                nuevoid--;
-                lista.children[i].id=nuevoid;
-            
+                var crea=lista.children[i].id;
+                crea--;
+                lista.children[i].id=crea;
                 i--; 
             }
                 
-   
             evento.target.parentElement.parentElement.remove();
-            totales--;
-                index--;
+            totalTareas--;
+                conteo--;
         }
-        if(evento.target.id=="completar"){
+        if(id=="completar"){
            
-             
-             if(evento.target.innerHTML=="Completado")
+             if(evento.target.innerHTML=="Terminado")
             {
-                acabadas++;
-                evento.target.parentElement.parentElement.setAttribute("style", "background-color:#f06c96; color:#800b0077");
-                evento.target.innerHTML= "No completado";
+                completadas++;
+                evento.target.parentElement.parentElement.setAttribute("style", "background-color: #4F93E3");
+                evento.target.innerHTML= "Sin terminar";
             }
             else{
-                acabadas--;
-                evento.target.parentElement.parentElement.setAttribute("style", "background-color:antiquewhite; color:brown");
-                evento.target.innerHTML = "Completado";
+                completadas--;
+                evento.target.parentElement.parentElement.setAttribute("style", "background-color: #4FE3CC");
+                evento.target.innerHTML = "Terminado";
             }
         }
-        
+    }
 
-
-    }
-    if(acabadas==1)
-    {
-        texto=" tarea pendiente de  "
-    }
-    else{
-        texto=" tareas pendientes de  "
-    }
-    terminadas.innerHTML=acabadas+texto+totales;
-    
+    if(completadas==1)
+        pendientes=" tarea pendiente de "
+    else
+        pendientes=" tareas pendientes de "
+    marca.innerHTML=completadas+pendientes+totalTareas;
 });
-if(acabadas==1)
-{
-    texto=" tarea pendiente de  "
-}
-else{
-    texto=" tareas pendientes de  "
-}
-terminadas.innerHTML=acabadas+texto+totales;
-div.appendChild(terminadas);
+div.appendChild(marca);

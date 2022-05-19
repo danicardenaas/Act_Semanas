@@ -4,26 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de tareas</title>
+    <title>Actividad tarea</title>
     <link rel="stylesheet" href="./statics/style/estilo.css">
 </head>
 <body>
     <form id="registro" method="post">
-        <h1>Lista de tareas</h1>
-        <input type="text"  id="input" class="texto" name="tarea" placeholder="¿Cuál es tu tarea?" required/><br><br>
+        <h1>Tarea que tienes pendientes: </h1>
+        <input id="input" class="texto" type="text" placeholder="Escribe tu tarea" required/><br><br>
         <select id="materias">
+            <option value="Computación">Computación</option>
             <option value="Biología">Biología</option>
-            <option value="Matemáticas">Matemáticas</option>
             <option value="Pintura">Pintura</option>
-            <option value="Historia">Historia</option>
             <option value="Geografía">Geografía</option>
             <option value="Astronomía">Astronomía</option>
             <option value="Otra">Otra</option>
         </select><br><br>
-        <br><button type="button" id="btn-agregarTarea" >Añade tu tarea</button><br><br>
+        <br><button type="button" id="btn" >Añade tu tarea</button><br><br>
     </form>
-    <div id="pendientes">
-        <h1>Tus tareas son:</h1>
+    <div id="tareas">
+        <h1>Tus tareas : </h1>
         <ul id="listaTareas">
 
         </ul>
