@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrellas</title>
+    <link rel="stylesheet" href="./statics/styles/estilo.css">
+</head>
+<body width="1000">
+   <header>Dibuja una estrellita :) </header> 
+   <hr>
+    <div id="contenedor">
+        <canvas class="dibujo" id="estrellita" width="500" height="500"></canvas>
+        <label>Número de picos:
+            <input name="size" type="number" id="lados" min="4" max="30" value="6">
+        </label><br><hr>
+        <label for="picudo">Picudo:
+            <input type="range" id="picudo" name="volume"min="5" max="160" value="100">
+        </label><br> <hr>
+        <label for="color">Color: 
+            <input type="color" id="color" name="color" value="#EE4A3C">
+        </label><br><hr>
+        <label for="rellleno">Relleno: 
+            <input type="checkbox" id="relleno" value="off">
+        </label>
+    </div>
+    <location:"./archivos.php">
+    
+    <script src="./dynamics/js/index.js"></script>
+</body>
+</html>
